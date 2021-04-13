@@ -9,7 +9,6 @@ export interface Options {
     useTextFile?: boolean,
     useBom?: boolean;
     valueFallback?: string;
-    headers?: string[];
-    headerProvider?: (header: string) => string;
-    useKeysAsHeaders?: boolean;
+    headers?: Record<string, string>;
+    keys?: string[]; //This will be the columns order
 }

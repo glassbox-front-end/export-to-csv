@@ -1,10 +1,6 @@
 let hasOwnProperty = Object.prototype.hasOwnProperty;
 let propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
-/**
- * Convert to Object
- * @param {any} val
- */
 function toObject(val: any) {
     if (val === null || val === undefined) {
         throw new TypeError('Object.assign cannot be called with null or undefined');
@@ -13,11 +9,6 @@ function toObject(val: any) {
     return Object(val);
 }
 
-/**
- * Assign data  to new Object
- * @param {any}   target
- * @param {any[]} ...source
- */
 export function objectAssign(target: any, ...source: any[]) {
     let from: any;
     let to = toObject(target);

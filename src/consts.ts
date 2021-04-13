@@ -12,8 +12,7 @@ export class CsvConfigConsts {
     public static DEFAULT_SHOW_LABELS = false;
     public static DEFAULT_USE_TEXT_FILE = false;
     public static DEFAULT_USE_BOM = true;
-    public static DEFAULT_HEADER: string[] = [];
-    public static DEFAULT_HEADER_PROVIDER = (header: string) => header;
+    public static DEFAULT_HEADER = {};
     public static DEFAULT_KEYS_AS_HEADERS = false;
     public static VALUE_FALLBACK = '';
 }
@@ -29,7 +28,5 @@ export const ConfigDefaults: Options = {
     useTextFile: CsvConfigConsts.DEFAULT_USE_TEXT_FILE,
     useBom: CsvConfigConsts.DEFAULT_USE_BOM,
     headers: CsvConfigConsts.DEFAULT_HEADER,
-    headerProvider: CsvConfigConsts.DEFAULT_HEADER_PROVIDER,
     valueFallback: CsvConfigConsts.VALUE_FALLBACK,
-    useKeysAsHeaders: CsvConfigConsts.DEFAULT_KEYS_AS_HEADERS,
 };
