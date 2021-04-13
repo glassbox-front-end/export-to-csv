@@ -1,4 +1,5 @@
-import { ExportToCsv, Options } from './export-to-csv';
+import { ExportToCsv } from './export-to-csv';
+import {Options} from "./typings";
 
 const mockData = [
     {
