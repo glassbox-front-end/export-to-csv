@@ -17,12 +17,8 @@
         "outDir": "./build"
     },
     "files": [
-        "export-to-csv.ts",
-        "export-to-csv.spec.ts",
-        "consts.ts",
-        "typings.ts",
-        "utils.ts",
-        "index.ts"
+        "src/export-to-csv.ts",
+        "src/index.ts"
     ],
     "exclude": [
         "node_modules"

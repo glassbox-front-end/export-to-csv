@@ -30,7 +30,6 @@ describe('ExportToCsv', () => {
         const options: Options = {
             title: "Test Csv",
             useBom: true,
-            useKeysAsHeaders: true,
         }
 
         const exportToCsvInstance = new ExportToCsv(options);
@@ -42,7 +41,6 @@ describe('ExportToCsv', () => {
         const options: Options = {
             title: "Test Csv",
             useBom: true,
-            useKeysAsHeaders: true,
         };
 
         const exportToCsvInstance = new ExportToCsv(options);
@@ -67,7 +65,6 @@ describe('ExportToCsv', () => {
         const options: Options = {
             title: "Test Csv",
             useBom: true,
-            useKeysAsHeaders: true
         }
 
         const exportToCsvInstance = new ExportToCsv(options);
@@ -82,7 +79,6 @@ describe('ExportToCsv As A Text File', () => {
             title: "Test Csv 1",
             useTextFile: true,
             useBom: true,
-            useKeysAsHeaders: true,
         };
 
         const exportToCsvInstance = new ExportToCsv(options);
@@ -95,7 +91,6 @@ describe('ExportToCsv As A Text File', () => {
             filename: "Test Csv 2",
             useTextFile: true,
             useBom: true,
-            useKeysAsHeaders: true,
         };
 
         const exportToCsvInstance = new ExportToCsv(options);
@@ -116,7 +111,6 @@ describe('ExportToCsv As A Text File', () => {
             filename: "Test Csv 3",
             useTextFile: true,
             useBom: true,
-            useKeysAsHeaders: true
         };
 
         const exportToCsvInstance = new ExportToCsv(options);
