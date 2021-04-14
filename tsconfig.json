@@ -19,6 +19,9 @@
     "files": [
         "export-to-csv.ts",
         "export-to-csv.spec.ts",
+        "consts.ts",
+        "typings.ts",
+        "utils.ts",
         "index.ts"
     ],
     "exclude": [

@@ -1,2 +1,2 @@
-export * from './src/export-to-csv';
-export * from './src/typings';
+export * from './export-to-csv';
+export * from './typings';
