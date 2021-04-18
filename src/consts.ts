@@ -15,6 +15,7 @@ export class CsvConfigConsts {
     public static DEFAULT_HEADER = {};
     public static DEFAULT_KEYS_AS_HEADERS = false;
     public static VALUE_FALLBACK = '';
+    public static KEYS: string[] = [];
 }
 
 export const ConfigDefaults: Options = {
@@ -29,4 +30,5 @@ export const ConfigDefaults: Options = {
     useBom: CsvConfigConsts.DEFAULT_USE_BOM,
     headers: CsvConfigConsts.DEFAULT_HEADER,
     valueFallback: CsvConfigConsts.VALUE_FALLBACK,
+    keys: CsvConfigConsts.KEYS
 };

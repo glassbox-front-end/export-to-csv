@@ -16,7 +16,7 @@ export class ExportToCsv {
     }
 
     constructor(options?: Options) {
-        this.options = options || {};
+        this.options = options;
     }
 
     generateCsv(jsonData: any, shouldReturnCsv: boolean = false): void | any {

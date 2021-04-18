@@ -10,5 +10,5 @@ export interface Options {
     useBom?: boolean;
     valueFallback?: string;
     headers?: Record<string, string>;
-    keys?: string[]; //This will be the columns order
+    keys: string[]; //Keys is the connection between the headers and the data, also this will be the columns order
 }
