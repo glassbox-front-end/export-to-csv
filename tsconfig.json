@@ -16,12 +16,9 @@
         "moduleResolution": "node",
         "outDir": "./build"
     },
-    "files": [
-        "export-to-csv.ts",
-        "export-to-csv.spec.ts",
-        "index.ts"
-    ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "src/*.spec.ts",
+        "build"
     ]
 }

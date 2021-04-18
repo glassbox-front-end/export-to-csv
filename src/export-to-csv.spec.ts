@@ -1,6 +1,15 @@
-import { ExportToCsv, Options } from './export-to-csv';
+import {ExportToCsv} from './export-to-csv';
+import {Options} from "./typings";
 
-const mockData = [
+export enum Keys {
+    Name = 'name',
+    Age = 'age',
+    Average = 'average',
+    Approved = 'approved',
+    Description = 'description'
+}
+
+export const mockData = [
     {
         name: "Test 1",
         age: 13,
@@ -24,40 +33,33 @@ const mockData = [
     },
 ];
 
+const missingDataMock = [
+    {
+        name: 'Test 4',
+        average: 8.2,
+        approved: true,
+        description: "Test 3 description"
+    }
+]
+
+
+export const mockKeys = [
+    ...Object.values(Keys)
+]
+
+
 describe('ExportToCsv', () => {
     it('should create a comma seperated string', () => {
         const options: Options = {
             title: "Test Csv",
             useBom: true,
-            useKeysAsHeaders: true,
+            keys: mockKeys
         }
 
         const exportToCsvInstance = new ExportToCsv(options);
         const string = exportToCsvInstance.generateCsv(mockData, true);
         expect(string).toBeTruthy(typeof string === 'string');
     });
-
-    it('should use keys of first object in collection as headers', () => {
-        const options: Options = {
-            title: "Test Csv",
-            useBom: true,
-            useKeysAsHeaders: true,
-        };
-
-        const exportToCsvInstance = new ExportToCsv(options);
-        const string = exportToCsvInstance.generateCsv(mockData, true);
-
-        const firstLine = string.split('\n')[0];
-        const keys = firstLine.split(',').map((s: string) => s.trim());
-
-        const mockDataKeys = Object.keys(mockData[0]);
-        expect(keys).toEqual(mockDataKeys);
-    });
-
-    // it('should properly overwrite default options through contructor', () => {
-    //     const exportToCsvInstance = new ExportToCsv();
-    //     const defaults = { ...exportToCsvInstance.options };
-    // });
 
     it('should initiate download through spawned browser', () => {
         if (!window) {
@@ -66,12 +68,11 @@ describe('ExportToCsv', () => {
         const options: Options = {
             title: "Test Csv",
             useBom: true,
-            useKeysAsHeaders: true
+            keys: mockKeys
         }
 
         const exportToCsvInstance = new ExportToCsv(options);
         exportToCsvInstance.generateCsv(mockData);
-
     });
 });
 
@@ -81,30 +82,12 @@ describe('ExportToCsv As A Text File', () => {
             title: "Test Csv 1",
             useTextFile: true,
             useBom: true,
-            useKeysAsHeaders: true,
+            keys: mockKeys
         };
 
         const exportToCsvInstance = new ExportToCsv(options);
         const string = exportToCsvInstance.generateCsv(mockData, true);
         expect(string).toBeTruthy(typeof string === 'string');
-    });
-
-    it('should use keys of first object in collection as headers', () => {
-        const options: Options = {
-            filename: "Test Csv 2",
-            useTextFile: true,
-            useBom: true,
-            useKeysAsHeaders: true,
-        };
-
-        const exportToCsvInstance = new ExportToCsv(options);
-        const string = exportToCsvInstance.generateCsv(mockData, true);
-
-        const firstLine = string.split('\n')[0];
-        const keys = firstLine.split(',').map((s: string) => s.trim());
-
-        const mockDataKeys = Object.keys(mockData[0]);
-        expect(keys).toEqual(mockDataKeys);
     });
 
     it('should initiate download through spawned browser', () => {
@@ -115,11 +98,22 @@ describe('ExportToCsv As A Text File', () => {
             filename: "Test Csv 3",
             useTextFile: true,
             useBom: true,
-            useKeysAsHeaders: true
+            keys: mockKeys
         };
 
         const exportToCsvInstance = new ExportToCsv(options);
         exportToCsvInstance.generateCsv(mockData);
+    });
 
+    it('should have headers for all columns - even if its missing', () => {
+        const options: Options = {
+            filename: "Test Csv 3",
+            useTextFile: true,
+            useBom: true,
+            keys: mockKeys
+        };
+        const exportToCsvInstance = new ExportToCsv(options);
+        const csv = exportToCsvInstance.generateCsv(missingDataMock, true);
+        expect(csv.split(',').length).toBe(Object.keys(mockKeys).length);
     });
 });
